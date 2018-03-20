@@ -1,0 +1,39 @@
+extends default
+
+
+
+block content
+
+  //CODIGO 9
+  include templates/nav.jade
+
+
+  div(class=['ui','container','grid', 'stackable'])
+    div(class=['ten','wide','column'])
+
+      h3(class=['ui','header','blue','dividing'])= 'Bienvenido  al CRUD con node JS, Semantic, Express JS y MySql'
+  //CODIGO 9
+
+  div(class=['ui', 'green', 'segment'])
+    div(class=['ui' ,'statistic'])
+      h1(class='label')= 'ID'
+      div(class='value')= producto[0].id
+      div(class='label')= producto[0].nombre
+    div(class=['ui' ,'statistic'])
+      h1(class='label')= 'Stock'
+      div(class='value')= producto[0].stock
+    div(class=['ui' ,'statistic'])
+      h1(class='label')= 'Precio'
+      div(class='value')= producto[0].precio
+    div(class=['ui' ,'statistic'])
+      h1(class='label')= 'Fecha de Creacion'
+      div(class='value')= producto[0].fecha_creacion
+
+
+        
+      
+  
+    
+  
+  
+  

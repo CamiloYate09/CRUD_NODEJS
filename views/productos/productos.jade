@@ -1,0 +1,41 @@
+// PASO 10
+
+extends ../default
+
+block content
+
+  // PASO 10
+  include ../templates/nav.jade
+  div(class=['ui','container','grid', 'stackable'])
+    div(class=['sixteen','wide','column'])
+
+      h2(class=['ui','header','blue', 'dividing'])= 'Lista de Productos'
+      //p= productos[1].nombre 'ver que los productos se vean en pantalla ' 
+      table(class=['ui','table','selectable', 'inverted','teal', 'celled'] id='tbl-productos')
+        thead
+          tr
+            th= 'ID'
+            th= 'Nombre'
+            th= 'Precio'
+            th= 'Stock'
+            th= 'Fecha de Creacion'
+            th= 'Acciones'
+        tbody
+          each producto in productos
+            tr
+              td(id='id_producto')= producto.id_producto
+              td= producto.nombre
+              td= producto.precio
+              td= producto.stock
+              td= producto.fecha_creacion
+              td
+                a(class=['ui', 'button','icon', 'positive'] href='#' data-inverted=''
+                  data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                  i(class=['trash', 'icon'])
+                a(class=['ui', 'button','icon', 'negative'] href='http://localhost:3000/modificar/'+ producto.id_producto data-inverted=''
+                  data-tooltip='Modificar' data-position='top center')
+                  i(class=['edit', 'icon'])
+
+  // PASO 10
+    
+  script(src='/javascripts/productos.js')    

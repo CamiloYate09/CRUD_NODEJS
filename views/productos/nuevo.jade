@@ -1,0 +1,40 @@
+// PASO 10
+
+extends ../default
+
+block content
+
+  // PASO 10
+  include ../templates/nav.jade
+  div(class=['ui','container','grid', 'stackable'])
+    div(class=['ten','wide','column'])
+
+      h2(class=['ui','header','blue', 'dividing'])= 'Crear Producto'
+      
+      div(class='form-nuevoproducto')
+        form(class=['ui','form'] action='http://localhost:3000/crearproducto' method='post')
+          div(class=['ui','header','field'])
+            label(for='nombre')='Nombre del Producto'
+            input(type='text', name='nombre' placeholder='Nombre')
+          div(class=['ui','two', 'header','fields'])
+            div(class=['ui','field'])
+              label(for='precio')='Precio'
+              input(type='text', name='precio' placeholder='Precio')
+            div(class=['ui','field'])
+              label(for='stock')='Stock'
+              input(type='text', name='stock' placeholder='Stock')
+          
+          //button(class=['ui','button','basic','black'])= 'Guardar'//funciona bien
+          div(class=['ui', 'buttons'])  
+            button(class=['ui','button','positive'])= 'Guardar'
+            div(class='or')
+            button(class=['ui', 'active', 'button'] type='reset' value='Reset')= 'Cancelar'
+          div(class=['ui','message','error'])
+        if info != underfined
+          div(class=['ui','message','success'])
+            i(class=['close', 'icon'])
+            div(class='header')= 'Producto Registrado'
+            p= info
+
+              
+  script(src='/javascripts/validacion.js')

@@ -1,0 +1,35 @@
+// PASO 10
+
+extends ../default
+
+block content
+
+  // PASO 10
+  include ../templates/nav.jade
+  div(class=['ui','container','grid', 'stackable'])
+    div(class=['ten','wide','column'])
+
+      h2(class=['ui','header','blue', 'dividing'])= 'Modificar Producto'
+      
+      div(class='form-nuevoproducto')
+        form(class=['ui','form'] action='http://localhost:3000/editar' method='post')
+          div(class=['ui','header','field'])
+            label(for='nombre')='Nombre del Producto'
+            input(type='text', name='nombre' placeholder='Nombre' value=producto[0].nombre)
+          div(class=['ui','two', 'header','fields'])
+            div(class=['ui','field'])
+              label(for='precio')='Precio'
+              input(type='text', name='precio' placeholder='Precio' value=producto[0].precio)
+            div(class=['ui','field'])
+              label(for='stock')='Stock'
+              input(type='text', name='stock' placeholder='Stock' value=producto[0].stock)
+              input(type='hidden', name='id_producto' value=producto[0].id_producto)
+          
+          //button(class=['ui','button','basic','black'])= 'Guardar'//funciona bien
+          div(class=['ui', 'buttons'])  
+            button(class=['ui','button','positive'])= 'Modificar'
+          div(class=['ui','message','error'])
+      
+
+              
+  script(src='/javascripts/validacion.js')
